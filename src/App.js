@@ -4,7 +4,8 @@ import {
   StyleSheet,
   Text,
   View,
-  Image
+  Image,
+  Linking
 } from 'react-native';
 import styled from 'styled-components/native';
 import { TabNavigator } from 'react-navigation';
@@ -16,14 +17,32 @@ import Vue from './Vue';
 const Container = styled.View`
   justifyContent: center;
   alignItems: center;
-  margin: 300px;
+  margin-top: 200px;
+`;
+
+const StyledImage = styled.Image`
+  margin: 30px;
+`;
+
+const TextLink = styled.Text`
+  color: blue;
 `;
 
 export default class javaScriptJeopardyRn extends Component {
   render() {
     return (
       <Container>
-        <Image source={require('./img/jeopardy-js.png')}/>
+        <StyledImage source={require('./img/jeopardy-js.png')}/>
+        <Text>Find this project on</Text>
+        <TextLink
+          onPress={() => Linking.openURL('https://github.com/ladyleet/javaScriptJeopardyRn')}>
+          Github
+        </TextLink>
+        <Text>Made with ❤️ by</Text>
+        <TextLink
+          onPress={() => Linking.openURL('http://twitter.com/ladyleet')}>
+          @ladyleet
+        </TextLink>
       </Container>
     );
   }
